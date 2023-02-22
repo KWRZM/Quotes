@@ -1,5 +1,6 @@
 const ktiba = document.querySelector('.box');
 const button = document.querySelector('.button-6');
+const author = document.querySelector('.author');
 let quote = "";   
 var language = navigator.language.slice(0,2);
 document.getElementById('language').value = language;
@@ -20,7 +21,13 @@ button.addEventListener('click',(e) => {
         .then(response => {
             ktiba.style.display = 'flex';
             console.log(response);
-            ktiba.textContent = response.content;
+            ktiba.textContent = '“' + response.content + '”';
+            console.log(author)
+            const div = document.createElement("div");
+            div.classList.add("author");
+            div.textContent = response.originator.name;
+            ktiba.appendChild(div);
+            
         })
         .catch(err => console.error(err));
 
