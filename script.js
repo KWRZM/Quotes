@@ -2,12 +2,10 @@ const ktiba = document.querySelector('.box');
 const button = document.querySelector('.button-6');
 let quote = "";   
 var language = navigator.language.slice(0,2);
-//document.getElementById('language').textContent = `Language: ${language}`;
+document.getElementById('language').value = language;
 
 
 button.addEventListener('click',(e) => {
-    
-    
     
     const options = {
         method: 'GET',
@@ -31,7 +29,5 @@ button.addEventListener('click',(e) => {
 function changerLangue() {
     var select = document.getElementById("language");
     var langue = select.options[select.selectedIndex].value;
-    console.log("La langue sélectionnée est : " + langue);
     language = langue;
-    console.log(language);
 }
